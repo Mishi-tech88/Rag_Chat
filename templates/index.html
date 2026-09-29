@@ -3,51 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groq Console</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Groq AI Workspace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
 </head>
 
 <body>
 
-<div class="shell">
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
 
-        <div class="brand">
-            <div class="brand-mark">G</div>
-            <div>
-                <strong>Groq Console</strong>
-                <span>Intelligence workspace</span>
+        <div class="sidebar-top">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <span>G</span>
+                </div>
+
+                <div class="logo-text">
+                    <strong>Groq AI</strong>
+                    <small>Intelligence Workspace</small>
+                </div>
+
             </div>
-        </div>
 
-        <div class="side-section">
-            <span class="section-label">WORKSPACE</span>
 
-            <button class="side-item active" data-tab="basic">
-                <span class="icon">◌</span>
-                Basic Chat
+            <button class="new-chat-btn" id="newChatBtn">
+                <span class="plus">+</span>
+                <span>New conversation</span>
             </button>
 
-            <button class="side-item" data-tab="rag">
-                <span class="icon">⌘</span>
-                Knowledge Chat
-            </button>
+
+            <div class="nav-label">
+                WORKSPACE
+            </div>
+
+
+            <nav class="navigation">
+
+                <button
+                    class="nav-item active"
+                    data-tab="basic"
+                >
+                    <span class="nav-icon">✦</span>
+
+                    <span class="nav-content">
+                        <strong>Basic Chat</strong>
+                        <small>General AI assistant</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-tab="rag"
+                >
+                    <span class="nav-icon">⌘</span>
+
+                    <span class="nav-content">
+                        <strong>Knowledge Chat</strong>
+                        <small>Ask your documents</small>
+                    </span>
+                </button>
+
+            </nav>
+
         </div>
+
+
+        <!-- ================= SIDEBAR BOTTOM ================= -->
 
         <div class="sidebar-bottom">
 
-            <div class="status">
-                <span class="status-dot"></span>
-                <div>
-                    <b>API Connected</b>
-                    <small>Groq inference online</small>
+            <div class="connection-card">
+
+                <div class="connection-icon">
+                    <span></span>
                 </div>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>Groq API connected</small>
+                </div>
+
+                <div class="online-dot"></div>
+
             </div>
 
-            <div class="model-card">
-                <span>MODEL</span>
-                <strong id="modelName">openai/gpt-oss-120b</strong>
+
+            <div class="model-info">
+
+                <div class="model-label">
+                    ACTIVE MODEL
+                </div>
+
+                <div class="model-name">
+                    openai/gpt-oss-120b
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+                <span>RAG WORKSPACE</span>
+                <span>v1.0</span>
             </div>
 
         </div>
@@ -55,66 +130,196 @@
     </aside>
 
 
+    <!-- ================= MAIN ================= -->
+
     <main class="main">
+
+        <!-- TOP BAR -->
 
         <header class="topbar">
 
-            <div>
-                <span class="eyebrow">PLAYGROUND</span>
-                <h1 id="pageTitle">Basic Chat</h1>
+            <div class="topbar-left">
+
+                <div class="mobile-logo">
+                    <div class="logo-icon small">
+                        G
+                    </div>
+                </div>
+
+                <div>
+
+                    <div class="breadcrumb">
+                        GROQ / PLAYGROUND
+                    </div>
+
+                    <h1 id="pageTitle">
+                        Basic Chat
+                    </h1>
+
+                </div>
+
             </div>
 
-            <div class="top-actions">
-                <button class="clear-btn" id="clearBtn">
-                    Clear conversation
+
+            <div class="topbar-actions">
+
+                <div class="status-pill">
+
+                    <span class="status-dot"></span>
+
+                    <span>Online</span>
+
+                </div>
+
+
+                <button
+                    class="icon-btn"
+                    id="themeToggle"
+                    title="Toggle theme"
+                >
+                    <span id="themeIcon">☀</span>
                 </button>
+
+
+                <button
+                    class="clear-btn"
+                    id="clearBtn"
+                >
+                    <span>⌫</span>
+                    Clear
+                </button>
+
             </div>
 
         </header>
 
 
+        <!-- ================= WORKSPACE ================= -->
+
         <section class="workspace">
 
-            <!-- BASIC CHAT -->
 
-            <div class="chat-panel active-panel" id="basicPanel">
+            <!-- ================= BASIC CHAT ================= -->
 
-                <div class="welcome">
+            <div
+                class="chat-panel active-panel"
+                id="basicPanel"
+            >
 
-                    <div class="welcome-number">01</div>
+                <div class="chat-header">
+
+                    <div class="chat-avatar basic-avatar">
+                        ✦
+                    </div>
 
                     <div>
-                        <h2>Talk to the model.</h2>
+
+                        <div class="chat-title-row">
+
+                            <h2>AI Assistant</h2>
+
+                            <span class="badge">
+                                GROQ
+                            </span>
+
+                        </div>
+
                         <p>
-                            A direct Groq conversation with persistent context
-                            throughout this session.
+                            Ask anything and get fast AI-powered responses.
                         </p>
+
                     </div>
 
                 </div>
 
-                <div class="messages" id="basicMessages"></div>
 
-                <form class="composer" id="basicForm">
+                <div
+                    class="messages"
+                    id="basicMessages"
+                >
 
-                    <div class="composer-inner">
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            How can I help you?
+                        </h3>
+
+                        <p>
+                            Start a conversation with your Groq-powered AI assistant.
+                        </p>
+
+                        <div class="suggestions">
+
+                            <button class="suggestion">
+                                Explain machine learning
+                            </button>
+
+                            <button class="suggestion">
+                                Write Python code
+                            </button>
+
+                            <button class="suggestion">
+                                Help me debug code
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPOSER -->
+
+                <form
+                    class="composer"
+                    id="basicForm"
+                >
+
+                    <div class="composer-box">
 
                         <textarea
                             id="basicInput"
-                            placeholder="Ask anything..."
+                            placeholder="Message your AI assistant..."
                             rows="1"
+                            maxlength="4000"
                         ></textarea>
 
-                        <button class="send-btn" type="submit">
+
+                        <button
+                            class="send-btn"
+                            type="submit"
+                        >
                             <span>Send</span>
-                            <b>↗</b>
+                            <span class="send-icon">↑</span>
                         </button>
 
                     </div>
 
-                    <div class="composer-meta">
-                        <span>ENTER to send</span>
-                        <span>GROQ · CHAT COMPLETIONS</span>
+
+                    <div class="composer-footer">
+
+                        <div class="composer-hints">
+                            <span>
+                                <kbd>Enter</kbd> Send
+                            </span>
+
+                            <span>
+                                <kbd>Shift</kbd> + <kbd>Enter</kbd> New line
+                            </span>
+                        </div>
+
+                        <span
+                            class="char-count"
+                            id="basicCount"
+                        >
+                            0 / 4000
+                        </span>
+
                     </div>
 
                 </form>
@@ -122,62 +327,160 @@
             </div>
 
 
-            <!-- RAG CHAT -->
+            <!-- ================= RAG CHAT ================= -->
 
-            <div class="chat-panel" id="ragPanel">
+            <div
+                class="chat-panel"
+                id="ragPanel"
+            >
 
-                <div class="welcome">
+                <div class="chat-header">
 
-                    <div class="welcome-number">02</div>
+                    <div class="chat-avatar rag-avatar">
+                        ⌘
+                    </div>
 
                     <div>
-                        <h2>Ask your knowledge.</h2>
+
+                        <div class="chat-title-row">
+
+                            <h2>Knowledge Assistant</h2>
+
+                            <span class="badge purple">
+                                RAG
+                            </span>
+
+                        </div>
+
                         <p>
-                            Answers are grounded against your local knowledge
-                            document.
+                            Ask questions and get answers grounded in your knowledge base.
                         </p>
+
                     </div>
 
                 </div>
 
-                <div class="knowledge-strip">
-                    <div class="document-icon">TXT</div>
 
-                    <div>
-                        <span>ACTIVE KNOWLEDGE SOURCE</span>
+                <!-- KNOWLEDGE SOURCE -->
+
+                <div class="knowledge-card">
+
+                    <div class="document-icon">
+                        TXT
+                    </div>
+
+                    <div class="knowledge-info">
+
+                        <span>
+                            ACTIVE KNOWLEDGE SOURCE
+                        </span>
+
                         <strong id="knowledgeFile">
                             samples/knowledge.txt
                         </strong>
+
                     </div>
 
-                    <div class="source-state">
-                        <span></span>
-                        Ready
+                    <div class="knowledge-status">
+
+                        <span class="source-dot"></span>
+
+                        <span>Ready</span>
+
                     </div>
+
                 </div>
 
-                <div class="messages" id="ragMessages"></div>
 
-                <form class="composer" id="ragForm">
+                <div
+                    class="messages"
+                    id="ragMessages"
+                >
 
-                    <div class="composer-inner">
+                    <div class="empty-state">
+
+                        <div class="empty-icon purple-icon">
+                            ⌘
+                        </div>
+
+                        <h3>
+                            Ask your knowledge base
+                        </h3>
+
+                        <p>
+                            Your answers are generated using the connected knowledge document.
+                        </p>
+
+                        <div class="suggestions">
+
+                            <button class="suggestion">
+                                What services do you provide?
+                            </button>
+
+                            <button class="suggestion">
+                                Explain your AI services
+                            </button>
+
+                            <button class="suggestion">
+                                What can you build?
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RAG COMPOSER -->
+
+                <form
+                    class="composer"
+                    id="ragForm"
+                >
+
+                    <div class="composer-box">
 
                         <textarea
                             id="ragInput"
                             placeholder="Ask something from your knowledge base..."
                             rows="1"
+                            maxlength="4000"
                         ></textarea>
 
-                        <button class="send-btn" type="submit">
+
+                        <button
+                            class="send-btn rag-send"
+                            type="submit"
+                        >
                             <span>Search</span>
-                            <b>↗</b>
+                            <span class="send-icon">↑</span>
                         </button>
 
                     </div>
 
-                    <div class="composer-meta">
-                        <span>DOCUMENT GROUNDED</span>
-                        <span>RAG · CONTEXT PROMPTING</span>
+
+                    <div class="composer-footer">
+
+                        <div class="composer-hints">
+
+                            <span>
+                                <kbd>Enter</kbd> Search
+                            </span>
+
+                            <span>
+                                DOCUMENT GROUNDED
+                            </span>
+
+                        </div>
+
+                        <span
+                            class="char-count"
+                            id="ragCount"
+                        >
+                            0 / 4000
+                        </span>
+
                     </div>
 
                 </form>
@@ -189,6 +492,18 @@
     </main>
 
 </div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    <span class="toast-icon">✓</span>
+    <span id="toastText">Copied</span>
+</div>
+
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
