@@ -858,7 +858,6 @@ updateCounter(
     basicCount
 );
 
-
 updateCounter(
     ragInput,
     ragCount
