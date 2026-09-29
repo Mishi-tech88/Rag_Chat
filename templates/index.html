@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq Console</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">G</div>
+            <div>
+                <strong>Groq Console</strong>
+                <span>Intelligence workspace</span>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <span class="section-label">WORKSPACE</span>
+
+            <button class="side-item active" data-tab="basic">
+                <span class="icon">◌</span>
+                Basic Chat
+            </button>
+
+            <button class="side-item" data-tab="rag">
+                <span class="icon">⌘</span>
+                Knowledge Chat
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="status">
+                <span class="status-dot"></span>
+                <div>
+                    <b>API Connected</b>
+                    <small>Groq inference online</small>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <span>MODEL</span>
+                <strong id="modelName">openai/gpt-oss-120b</strong>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <span class="eyebrow">PLAYGROUND</span>
+                <h1 id="pageTitle">Basic Chat</h1>
+            </div>
+
+            <div class="top-actions">
+                <button class="clear-btn" id="clearBtn">
+                    Clear conversation
+                </button>
+            </div>
+
+        </header>
+
+
+        <section class="workspace">
+
+            <!-- BASIC CHAT -->
+
+            <div class="chat-panel active-panel" id="basicPanel">
+
+                <div class="welcome">
+
+                    <div class="welcome-number">01</div>
+
+                    <div>
+                        <h2>Talk to the model.</h2>
+                        <p>
+                            A direct Groq conversation with persistent context
+                            throughout this session.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="messages" id="basicMessages"></div>
+
+                <form class="composer" id="basicForm">
+
+                    <div class="composer-inner">
+
+                        <textarea
+                            id="basicInput"
+                            placeholder="Ask anything..."
+                            rows="1"
+                        ></textarea>
+
+                        <button class="send-btn" type="submit">
+                            <span>Send</span>
+                            <b>↗</b>
+                        </button>
+
+                    </div>
+
+                    <div class="composer-meta">
+                        <span>ENTER to send</span>
+                        <span>GROQ · CHAT COMPLETIONS</span>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- RAG CHAT -->
+
+            <div class="chat-panel" id="ragPanel">
+
+                <div class="welcome">
+
+                    <div class="welcome-number">02</div>
+
+                    <div>
+                        <h2>Ask your knowledge.</h2>
+                        <p>
+                            Answers are grounded against your local knowledge
+                            document.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="knowledge-strip">
+                    <div class="document-icon">TXT</div>
+
+                    <div>
+                        <span>ACTIVE KNOWLEDGE SOURCE</span>
+                        <strong id="knowledgeFile">
+                            samples/knowledge.txt
+                        </strong>
+                    </div>
+
+                    <div class="source-state">
+                        <span></span>
+                        Ready
+                    </div>
+                </div>
+
+                <div class="messages" id="ragMessages"></div>
+
+                <form class="composer" id="ragForm">
+
+                    <div class="composer-inner">
+
+                        <textarea
+                            id="ragInput"
+                            placeholder="Ask something from your knowledge base..."
+                            rows="1"
+                        ></textarea>
+
+                        <button class="send-btn" type="submit">
+                            <span>Search</span>
+                            <b>↗</b>
+                        </button>
+
+                    </div>
+
+                    <div class="composer-meta">
+                        <span>DOCUMENT GROUNDED</span>
+                        <span>RAG · CONTEXT PROMPTING</span>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

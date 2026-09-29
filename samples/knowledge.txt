@@ -1,0 +1,780 @@
+====================================================================
+KNOWLEDGE BASE — AI, DATA SCIENCE & FULL STACK WEB SERVICES
+====================================================================
+Purpose: This document is the authoritative knowledge source for the
+AI assistant. It answers user questions about the AI, Data Science,
+and Full Stack Web Development services we offer.
+
+NOTE FOR MAINTAINERS: Replace bracketed placeholders like [COMPANY NAME],
+[EMAIL], [PHONE], [WEBSITE] and pricing figures with your real details.
+Keep headings — the RAG system uses them to chunk and retrieve content.
+
+====================================================================
+1. COMPANY OVERVIEW
+====================================================================
+We are a technology services company specializing in three practice areas:
+(1) Artificial Intelligence, (2) Data Science and Analytics, and
+(3) Full Stack Web Development.
+
+We help startups, SMBs, and enterprises design, build, deploy, and maintain
+intelligent software products and data platforms.
+
+Core promise: we take a project from idea to production — including
+architecture, development, deployment, and ongoing support.
+
+Typical clients: startups building an MVP, businesses automating manual
+workflows, companies that need dashboards and forecasting, and
+organizations adding AI features (chatbots, recommendations, document
+search, computer vision) to existing products.
+
+Engagement models: fixed-scope project, dedicated team (monthly retainer),
+and hourly consulting.
+
+Contact: [EMAIL] | [PHONE] | [WEBSITE]
+
+====================================================================
+2. SERVICES AT A GLANCE
+====================================================================
+AI Services:
+- AI strategy and consulting
+- Machine Learning model development
+- Generative AI and LLM applications
+- Retrieval-Augmented Generation (RAG) chatbots
+- AI agents and workflow automation
+- Computer vision
+- Natural Language Processing (NLP)
+- MLOps and model deployment
+
+Data Science Services:
+- Data engineering and ETL/ELT pipelines
+- Data warehousing and data lakes
+- Business Intelligence (BI) dashboards
+- Predictive analytics and forecasting
+- Customer segmentation and recommendation analytics
+- A/B testing and experimentation
+- Data quality, governance, and auditing
+
+Full Stack Web Development Services:
+- Frontend development
+- Backend development and APIs
+- Database design and optimization
+- Authentication and user management
+- Cloud deployment and DevOps
+- SaaS platforms and multi-tenant apps
+- E-commerce websites
+- CMS and content-driven websites
+- Web app maintenance and performance optimization
+
+====================================================================
+3. AI SERVICES — DETAILED
+====================================================================
+
+--- 3.1 AI Strategy and Consulting ---
+What it is: We assess where AI can create measurable value in your
+business, then produce a prioritized roadmap.
+
+Deliverables:
+- AI opportunity assessment and use-case shortlist
+- Feasibility and ROI analysis per use case
+- Build vs. buy recommendation
+- Data readiness assessment
+- Architecture blueprint and phased roadmap
+- Cost estimate and timeline
+
+Best for: Companies that know AI matters but do not know where to start.
+Timeline: 2–4 weeks.
+
+--- 3.2 Machine Learning Model Development ---
+What it is: We build custom predictive models trained on your data.
+
+Common model types:
+- Classification (churn prediction, fraud detection, lead scoring)
+- Regression (price prediction, demand estimation)
+- Forecasting (sales, inventory, traffic, energy load)
+- Clustering and segmentation
+- Recommendation systems (collaborative and content-based filtering)
+- Anomaly detection (quality control, security, equipment failure)
+- Ranking and scoring models
+
+Our process:
+1. Problem framing and success metric definition
+2. Data collection, cleaning, and feature engineering
+3. Baseline model, then iterative improvement
+4. Rigorous evaluation (cross-validation, holdout sets)
+5. Deployment as an API or batch job
+6. Monitoring for drift and performance decay
+
+Tech stack: Python, scikit-learn, XGBoost, LightGBM, PyTorch,
+TensorFlow, pandas, NumPy.
+
+Deliverables: Trained model, reproducible training code, evaluation
+report, inference API, and documentation.
+
+Timeline: 4–12 weeks depending on data readiness and complexity.
+
+--- 3.3 Generative AI and LLM Applications ---
+What it is: We build applications powered by large language models
+(LLMs) such as GPT, Claude, Gemini, and open-source models like Llama
+and Mistral.
+
+What we build:
+- Chatbots and virtual assistants
+- Document Q&A and enterprise search
+- Summarization and report generation
+- Content generation and rewriting tools
+- Code assistants and developer copilots
+- Text classification and extraction at scale
+- Voice assistants (speech-to-text + LLM + text-to-speech)
+
+Key techniques we use:
+- Prompt engineering and prompt templates
+- Retrieval-Augmented Generation (RAG)
+- Fine-tuning and parameter-efficient fine-tuning (LoRA, QLoRA)
+- Function calling and tool use
+- Guardrails, moderation, and hallucination reduction
+- Evaluation harnesses and LLM-as-judge testing
+
+Deployment options: hosted APIs (OpenAI, Anthropic, Google) or
+self-hosted open-source models for data privacy and cost control.
+
+--- 3.4 Retrieval-Augmented Generation (RAG) Chatbots ---
+What it is: A chatbot that answers questions using YOUR documents
+instead of relying only on the model's general knowledge.
+
+How RAG works (simple explanation):
+1. Your documents are split into small chunks.
+2. Each chunk is converted into a vector embedding and stored in a
+   vector database.
+3. When a user asks a question, the question is also embedded.
+4. The system retrieves the most similar chunks.
+5. Those chunks are passed to the LLM as context.
+6. The LLM writes an answer grounded in that context, often with
+   citations to the source.
+
+Why RAG instead of fine-tuning:
+- Answers stay up to date — just update the documents
+- Cheaper and faster to implement
+- Provides source citations for trust and verification
+- Reduces hallucinations
+- No retraining required
+
+Typical RAG stack:
+- Orchestration: LangChain, LlamaIndex, or custom code
+- Vector databases: Pinecone, Weaviate, Qdrant, Chroma, pgvector,
+  Milvus, FAISS
+- Embeddings: OpenAI embeddings, Cohere, BGE, E5, Sentence-Transformers
+- LLMs: GPT, Claude, Gemini, Llama, Mistral
+- Backend: Python (FastAPI) or Node.js
+- Frontend: React / Next.js chat interface
+
+Advanced RAG features we implement:
+- Hybrid search (keyword + vector)
+- Reranking (Cohere Rerank, cross-encoders)
+- Metadata filtering by department, date, or document type
+- Multi-document and multi-format ingestion (PDF, DOCX, HTML, CSV, SQL)
+- Conversation memory and follow-up question handling
+- Streaming responses
+- Source citations and confidence scores
+- Access control so users only see permitted documents
+- Analytics on unanswered questions to improve coverage
+
+Timeline: a working prototype in 1–3 weeks; production system in 4–8 weeks.
+
+--- 3.5 AI Agents and Workflow Automation ---
+What it is: LLM-powered systems that take actions, not just answer
+questions — they can call APIs, query databases, send emails, create
+tickets, and chain multiple steps together.
+
+Examples:
+- Customer support agent that resolves tickets end to end
+- Sales research agent that enriches leads automatically
+- Document processing agent that extracts data and files it
+- Internal ops agent that answers HR and IT policy questions
+- Multi-agent systems where specialized agents collaborate
+
+Frameworks: LangGraph, CrewAI, AutoGen, OpenAI Assistants API,
+custom orchestration.
+
+Safety: human-in-the-loop approvals, action limits, audit logs,
+and sandboxed tool access.
+
+--- 3.6 Computer Vision ---
+What it is: Systems that extract information from images and video.
+
+Use cases:
+- Object detection and tracking
+- Image classification and quality inspection
+- OCR and document digitization
+- Face detection and blurring (privacy)
+- Defect detection in manufacturing
+- Retail shelf and inventory analysis
+- Medical and satellite image analysis
+
+Tech: OpenCV, PyTorch, TensorFlow, YOLO, Detectron2, Vision APIs.
+
+--- 3.7 Natural Language Processing (NLP) ---
+What it is: Systems that understand and process human language.
+
+Use cases:
+- Sentiment analysis and voice-of-customer analysis
+- Named entity recognition (names, dates, amounts, organizations)
+- Text classification and routing
+- Topic modeling
+- Translation and multilingual support
+- Resume and document parsing
+- Spam, abuse, and toxicity detection
+
+====================================================================
+4. DATA SCIENCE SERVICES — DETAILED
+====================================================================
+
+--- 4.1 Data Engineering and ETL/ELT Pipelines ---
+What it is: We build the plumbing that moves and cleans data reliably
+from source systems into a place where it can be analyzed.
+
+We handle:
+- Batch pipelines (scheduled, nightly, hourly)
+- Streaming pipelines (real-time events)
+- API and database ingestion
+- Data cleaning, deduplication, and standardization
+- Incremental and idempotent loads
+- Orchestration, retries, and alerting
+
+Tech: Apache Airflow, Dagster, Prefect, dbt, Spark, Kafka,
+Fivetran/Airbyte-style connectors, Python, SQL.
+
+--- 4.2 Data Warehousing and Data Lakes ---
+What it is: A centralized, well-modeled store for analytical data.
+
+Platforms: Snowflake, BigQuery, Amazon Redshift, Databricks,
+PostgreSQL, DuckDB, Delta Lake, Apache Iceberg.
+
+What we deliver: star/snowflake schemas, fact and dimension tables,
+staging and mart layers, documentation, and cost optimization.
+
+--- 4.3 Business Intelligence and Dashboards ---
+What it is: Visual reporting that lets teams see what is happening
+in their business.
+
+Tools: Power BI, Tableau, Looker, Metabase, Superset, Grafana.
+
+Typical dashboards:
+- Executive KPI dashboard (revenue, growth, margin, retention)
+- Sales pipeline and conversion funnel
+- Marketing channel performance and CAC/ROAS
+- Product usage and engagement
+- Operations and supply chain
+- Financial reporting
+
+We also build self-serve semantic layers so business users can
+explore data without writing SQL.
+
+--- 4.4 Predictive Analytics and Forecasting ---
+What it is: Using historical data to estimate future outcomes.
+
+Examples:
+- Sales and revenue forecasting
+- Demand and inventory planning
+- Churn prediction and retention scoring
+- Customer lifetime value (CLV)
+- Credit and risk scoring
+- Predictive maintenance
+- Staffing and capacity planning
+
+Methods: time-series models (ARIMA, Prophet, ETS), gradient boosting,
+regression, and deep learning where warranted.
+
+--- 4.5 Customer Segmentation and Recommendations ---
+What it is: Grouping customers by behavior and value, and personalizing
+what they see.
+
+Techniques: RFM analysis, k-means and hierarchical clustering,
+cohort analysis, collaborative filtering, matrix factorization,
+and embeddings-based similarity.
+
+--- 4.6 A/B Testing and Experimentation ---
+What it is: Measuring the real impact of product or marketing changes.
+
+We provide: hypothesis design, sample size and power calculation,
+randomization strategy, statistical analysis, guardrail metrics,
+and a decision recommendation.
+
+--- 4.7 Data Quality, Governance, and Auditing ---
+What it is: Making sure data is accurate, consistent, and compliant.
+
+We implement: data quality tests, schema contracts, lineage tracking,
+PII detection and masking, access controls, retention policies,
+and documentation of data definitions.
+
+====================================================================
+5. FULL STACK WEB DEVELOPMENT — DETAILED
+====================================================================
+
+--- 5.1 What "Full Stack" Means ---
+Full stack development covers everything a web application needs:
+the user interface the customer sees (frontend), the server logic
+and data storage behind it (backend), and the infrastructure that
+runs it (deployment, databases, and DevOps).
+
+We build complete products, not just one layer.
+
+--- 5.2 Frontend Development ---
+What it is: The part of the application users interact with in the
+browser or on mobile.
+
+We build: responsive marketing sites, dashboards, admin panels,
+SaaS interfaces, chat UIs, and data visualizations.
+
+Tech: React, Next.js, Vue, Nuxt, Angular, Svelte, TypeScript,
+JavaScript, HTML5, CSS3, Tailwind CSS, Material UI, shadcn/ui,
+Redux, Zustand, React Query.
+
+Focus areas: performance, accessibility (WCAG), mobile
+responsiveness, SEO, and clean component architecture.
+
+--- 5.3 Backend Development and APIs ---
+What it is: The server-side logic, business rules, and data access.
+
+We build: REST APIs, GraphQL APIs, WebSocket/real-time services,
+background job workers, webhooks, and third-party integrations.
+
+Tech: Node.js (Express, NestJS, Fastify), Python (FastAPI, Django,
+Flask), Java (Spring Boot), Go, PHP (Laravel), .NET.
+
+We also design API contracts, versioning, rate limiting, and
+documentation with OpenAPI/Swagger.
+
+--- 5.4 Databases ---
+Relational: PostgreSQL, MySQL, SQL Server, SQLite.
+NoSQL: MongoDB, DynamoDB, Redis, Cassandra, Firestore.
+Vector databases (for AI features): pgvector, Pinecone, Qdrant,
+Weaviate, Chroma, Milvus.
+Search: Elasticsearch, OpenSearch, Typesense.
+
+We handle schema design, indexing, query optimization, migrations,
+backups, replication, and scaling.
+
+--- 5.5 Authentication and User Management ---
+We implement: email/password login, OAuth social login (Google,
+GitHub, Apple), magic links, multi-factor authentication (MFA),
+role-based access control (RBAC), session management, and
+single sign-on (SSO/SAML) for enterprises.
+
+Tools: Auth.js/NextAuth, Clerk, Auth0, Supabase Auth, Firebase Auth,
+Keycloak, custom JWT implementations.
+
+--- 5.6 Cloud and DevOps ---
+Cloud platforms: AWS, Google Cloud, Microsoft Azure, Vercel,
+Netlify, DigitalOcean, Railway, Render.
+
+We provide:
+- CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins)
+- Containerization with Docker and orchestration with Kubernetes
+- Infrastructure as Code (Terraform, Pulumi)
+- Monitoring and logging (Grafana, Prometheus, Datadog, Sentry)
+- Auto-scaling and load balancing
+- Cost optimization
+
+--- 5.7 Types of Web Products We Build ---
+- SaaS platforms and multi-tenant applications
+- Marketplaces
+- E-commerce stores (Shopify, WooCommerce, custom headless builds)
+- Booking and scheduling systems
+- Learning management systems
+- Customer portals and dashboards
+- Internal tools and admin panels
+- AI-powered web apps (chat, search, recommendations)
+- Content sites and blogs with headless CMS
+  (Sanity, Strapi, Contentful, Payload, WordPress)
+
+--- 5.8 Website Performance, SEO, and Accessibility ---
+We optimize Core Web Vitals (LCP, INP, CLS), image and asset
+delivery, caching, code splitting, server-side rendering, and CDN
+configuration. We also implement technical SEO (metadata, sitemaps,
+structured data) and accessibility best practices.
+
+====================================================================
+6. COMBINED / END-TO-END SOLUTIONS
+====================================================================
+Many clients need all three practices together. Examples:
+
+- AI SaaS product: Full stack web app + LLM features + usage
+  analytics + billing.
+- RAG knowledge assistant: document pipeline (data engineering) +
+  vector search + LLM + chat UI + admin dashboard.
+- Predictive analytics platform: ETL pipelines + warehouse + ML
+  models + dashboards + web portal.
+- E-commerce intelligence: store frontend + recommendation engine +
+  demand forecasting + BI reporting.
+- Internal AI copilot: connects to company databases and documents,
+  deployed securely behind SSO.
+
+====================================================================
+7. HOW WE WORK — PROJECT PROCESS
+====================================================================
+Phase 1 — Discovery (1–2 weeks)
+  Calls with stakeholders, requirement gathering, success metrics,
+  technical constraints, and a written scope document.
+
+Phase 2 — Architecture and Design (1–3 weeks)
+  System architecture, data model, UI/UX wireframes, technology
+  selection, and a detailed project plan.
+
+Phase 3 — Development (2–16 weeks depending on scope)
+  Agile sprints, usually 1–2 weeks each. Demo at the end of each
+  sprint. Access to a shared board and repository.
+
+Phase 4 — Testing and QA
+  Unit, integration, and end-to-end tests; model evaluation;
+  performance and security checks; user acceptance testing.
+
+Phase 5 — Deployment
+  Production release, CI/CD setup, monitoring, and documentation.
+
+Phase 6 — Support and Iteration
+  Bug fixes, monitoring, model retraining, feature additions, and
+  performance tuning under a support agreement.
+
+Communication: a dedicated point of contact, weekly status updates,
+and a shared Slack/Teams channel.
+
+====================================================================
+8. ENGAGEMENT MODELS AND PRICING
+====================================================================
+Model A — Fixed-Scope Project
+  Best when requirements are clear. Fixed price, fixed deliverables,
+  fixed timeline. Milestone-based payments.
+
+Model B — Dedicated Team (Retainer)
+  Best for ongoing product development. Monthly fee for a team
+  (e.g., 1 developer, or 1 ML engineer + 1 full stack developer).
+  Flexible scope, monthly rolling.
+
+Model C — Hourly Consulting
+  Best for audits, architecture reviews, debugging, or mentoring.
+  Billed hourly with a minimum block.
+
+Indicative ranges (replace with your real rates):
+- AI strategy consulting: from $[X] per engagement
+- ML model development: $[X]–$[Y] per project
+- RAG chatbot (production): $[X]–$[Y]
+- Data pipeline: $[X]–$[Y]
+- BI dashboard: $[X]–$[Y]
+- Full stack web app (MVP): $[X]–$[Y]
+- Dedicated developer: $[X] per month
+- Hourly rate: $[X] per hour
+
+What affects cost: number of integrations, data quality and volume,
+custom model training vs. using pre-trained APIs, compliance
+requirements, UI complexity, and timeline urgency.
+
+====================================================================
+9. TYPICAL TIMELINES
+====================================================================
+- AI strategy / roadmap: 2–4 weeks
+- Proof of concept (AI or ML): 2–6 weeks
+- RAG chatbot prototype: 1–3 weeks
+- RAG chatbot production-ready: 4–8 weeks
+- Custom ML model: 4–12 weeks
+- Data pipeline and warehouse setup: 3–8 weeks
+- BI dashboard suite: 2–6 weeks
+- Web app MVP: 6–12 weeks
+- Full-scale SaaS platform: 3–9 months
+- Website (marketing/content): 2–6 weeks
+
+Timelines assume timely access to data, stakeholders, and feedback.
+
+====================================================================
+10. SECURITY, PRIVACY, AND COMPLIANCE
+====================================================================
+- Encryption in transit (TLS) and at rest
+- Role-based access control and audit logging
+- Secrets management (Vault, AWS Secrets Manager)
+- PII detection, masking, and data minimization
+- Options for private deployment: VPC, on-premise, or self-hosted
+  open-source models so data never leaves your environment
+- GDPR and CCPA-aware data handling practices
+- NDA and IP assignment: client owns the deliverables unless
+  agreed otherwise
+- Regular dependency and vulnerability scanning
+
+====================================================================
+11. INDUSTRIES WE SERVE
+====================================================================
+E-commerce and retail, healthcare, fintech and banking, insurance,
+logistics and supply chain, manufacturing, education, real estate,
+media and publishing, SaaS and technology, professional services,
+and government/public sector.
+
+====================================================================
+12. FREQUENTLY ASKED QUESTIONS
+====================================================================
+
+Q: What is the difference between AI, Machine Learning, and
+   Data Science?
+A: Data Science is the broad discipline of extracting insights from
+   data using statistics, programming, and domain knowledge.
+   Machine Learning is a subset of AI where models learn patterns
+   from data instead of being explicitly programmed. AI is the
+   widest term, covering machine learning plus areas like NLP,
+   computer vision, robotics, and generative AI.
+
+Q: What is a RAG chatbot and why would I need one?
+A: RAG (Retrieval-Augmented Generation) is a technique where the
+   chatbot retrieves relevant passages from your own documents and
+   gives them to a large language model as context before it
+   answers. You need it when you want accurate, up-to-date answers
+   grounded in your private content, with citations, and without
+   the cost and delay of retraining a model.
+
+Q: Can the chatbot answer questions about my own documents?
+A: Yes. We ingest your PDFs, Word files, web pages, CSVs, and
+   database records, then index them for retrieval. The assistant
+   answers only from that knowledge base and cites its sources.
+
+Q: Do you fine-tune models or use RAG?
+A: We recommend RAG when knowledge changes frequently or when you
+   need citations. We recommend fine-tuning when you need a
+   specific tone, format, or a narrow task done very consistently.
+   Often the best result is RAG plus light fine-tuning.
+
+Q: How do you prevent the AI from making things up?
+A: We ground responses in retrieved documents, instruct the model
+   to say "I don't know" when context is missing, add confidence
+   thresholds, cite sources, and run automated evaluation tests on
+   a set of known question-answer pairs.
+
+Q: Which LLM do you use — OpenAI, Claude, or open source?
+A: We are model-agnostic. We choose based on accuracy, latency,
+   cost, privacy requirements, and whether self-hosting is needed.
+   We can also build a router that uses different models for
+   different tasks.
+
+Q: How much does a RAG chatbot cost?
+A: A prototype typically starts in the low thousands; a production
+   system with authentication, multiple data sources, analytics,
+   and monitoring is a larger project. Final cost depends on the
+   number of documents, integrations, and users. Contact us for a
+   quote: [EMAIL].
+
+Q: How long does it take to build an AI chatbot?
+A: A working prototype takes 1–3 weeks. A production-ready system
+   with security, evaluation, and integrations takes 4–8 weeks.
+
+Q: What is MLOps?
+A: MLOps is the practice of deploying, monitoring, and maintaining
+   machine learning models in production — including versioning,
+   automated retraining, drift detection, and CI/CD for models.
+
+Q: What is model drift?
+A: Model drift is when a model's accuracy degrades over time
+   because real-world data has changed. We monitor for it and set
+   up automatic retraining schedules.
+
+Q: Can you work with our existing data and systems?
+A: Yes. We integrate with existing databases, CRMs, ERPs, data
+   warehouses, APIs, and cloud accounts. We can also start with
+   whatever data you have and improve quality as we go.
+
+Q: Do we need a lot of data to start?
+A: Not necessarily. For many use cases, pre-trained models and
+   APIs get you far with little or no training data. For custom
+   models, more labeled data helps, but we can often start with a
+   small dataset and improve iteratively.
+
+Q: What is a data warehouse and do we need one?
+A: A data warehouse is a central, structured store for analytical
+   data from multiple sources. You need one when reporting is slow,
+   data lives in many disconnected tools, or different teams
+   report different numbers for the same metric.
+
+Q: What is the difference between a data lake and a data warehouse?
+A: A data lake stores raw data in many formats cheaply and is
+   flexible but unstructured. A data warehouse stores cleaned,
+   modeled, structured data optimized for fast querying and
+   reporting. Many companies use both — this is called a lakehouse.
+
+Q: What is ETL vs ELT?
+A: ETL transforms data before loading it into the warehouse.
+   ELT loads raw data first and transforms it inside the warehouse,
+   which is more common today because warehouse compute is cheap
+   and scalable.
+
+Q: What tech stack do you use for web apps?
+A: Commonly React or Next.js with TypeScript on the frontend;
+   Node.js/NestJS or Python/FastAPI on the backend; PostgreSQL or
+   MongoDB for data; deployed on AWS, GCP, Azure, or Vercel with
+   Docker and CI/CD. We choose based on your needs, existing
+   skills, and long-term maintenance.
+
+Q: Can you build both the website and the AI features?
+A: Yes. That is our core strength — we deliver the full product:
+   frontend, backend, database, cloud infrastructure, and the AI
+   or data components inside it.
+
+Q: Do you redesign or fix existing websites and apps?
+A: Yes. We perform audits, fix performance and security issues,
+   modernize legacy code, migrate to new frameworks, and add AI
+   features to existing products.
+
+Q: Do you provide ongoing support after launch?
+A: Yes. We offer monthly support and maintenance plans covering
+   bug fixes, monitoring, updates, model retraining, and small
+   feature requests.
+
+Q: Who owns the code and the models?
+A: You do, unless the contract states otherwise. We hand over
+   source code, documentation, and trained model artifacts.
+
+Q: How do we get started?
+A: Book a free consultation at [WEBSITE] or email [EMAIL]. We will
+   discuss your goals, review your data and systems, and send a
+   proposal with scope, timeline, and cost.
+
+====================================================================
+13. GLOSSARY
+====================================================================
+AI (Artificial Intelligence): Software that performs tasks normally
+requiring human intelligence.
+
+Machine Learning (ML): Models that learn patterns from data.
+
+Deep Learning: Machine learning using multi-layer neural networks.
+
+LLM (Large Language Model): A large neural network trained on text
+that can generate and understand language, e.g. GPT, Claude, Llama.
+
+RAG (Retrieval-Augmented Generation): Retrieving relevant documents
+and giving them to an LLM so it answers with grounded context.
+
+Embedding: A numeric vector representation of text, image, or audio
+that captures meaning, used for similarity search.
+
+Vector Database: A database optimized for storing and searching
+embeddings by similarity.
+
+Chunking: Splitting documents into small passages before embedding —
+a key RAG quality factor.
+
+Fine-tuning: Further training a model on your own examples to
+specialize its behavior.
+
+Prompt Engineering: Designing instructions and context that make an
+LLM produce better output.
+
+Hallucination: When an AI generates confident but incorrect content.
+
+Inference: Running a trained model to get a prediction or response.
+
+Token: A unit of text (roughly part of a word) that LLMs process;
+API pricing is usually per token.
+
+MLOps: Practices for deploying and maintaining ML in production.
+
+ETL / ELT: Extract, Transform, Load / Extract, Load, Transform —
+data pipeline patterns.
+
+Data Warehouse: Central structured store for analytics.
+
+Data Lake: Central store for raw data in any format.
+
+BI (Business Intelligence): Tools and processes for reporting and
+visualizing data.
+
+KPI: Key Performance Indicator — a metric that measures success.
+
+API (Application Programming Interface): A defined way for software
+systems to communicate.
+
+REST / GraphQL: Two common styles of web API.
+
+Frontend: The user-facing part of an application.
+
+Backend: The server-side logic and data layer.
+
+Full Stack: Covering both frontend and backend.
+
+CI/CD: Continuous Integration / Continuous Deployment — automated
+build, test, and release pipelines.
+
+Docker / Kubernetes: Tools for packaging and orchestrating
+applications across servers.
+
+Multi-tenant: One application serving many separate customers with
+isolated data.
+
+SaaS: Software as a Service — subscription-based hosted software.
+
+MVP: Minimum Viable Product — the smallest version that delivers
+real value to validate an idea.
+
+====================================================================
+14. KEYWORD AND SYNONYM MAP (for retrieval)
+====================================================================
+AI chatbot, virtual assistant, conversational AI, support bot,
+knowledge bot, document Q&A, internal search, enterprise search,
+semantic search, RAG, retrieval augmented generation, vector search,
+embeddings, LLM app, GPT integration, Claude integration, Gemini,
+Llama, Mistral, fine-tuning, prompt engineering, AI agent, automation,
+copilot, generative AI, GenAI.
+
+Prediction, forecasting, churn, fraud detection, recommendation
+engine, personalization, segmentation, clustering, classification,
+regression, anomaly detection, scoring model, MLOps, model deployment,
+model monitoring, drift, retraining.
+
+Data pipeline, ETL, ELT, Airflow, dbt, Spark, Kafka, warehouse,
+Snowflake, BigQuery, Redshift, Databricks, lakehouse, data lake,
+data quality, data governance, lineage, PII, data catalog.
+
+Dashboard, reporting, Power BI, Tableau, Looker, Metabase, KPI,
+metrics, analytics, A/B test, experimentation, cohort analysis,
+RFM, CLV, funnel analysis.
+
+Website development, web app, web application, SaaS build,
+marketplace, e-commerce, online store, Shopify, WooCommerce,
+headless CMS, WordPress, Strapi, Sanity, Contentful, landing page,
+corporate website, portal, dashboard UI.
+
+Frontend, React, Next.js, Vue, Angular, Svelte, TypeScript,
+Tailwind, responsive design, UI/UX, accessibility, SEO,
+Core Web Vitals, performance optimization.
+
+Backend, API, REST, GraphQL, Node.js, Express, NestJS, FastAPI,
+Django, Laravel, Spring Boot, microservices, WebSocket,
+real-time, integration, webhook, payment gateway, Stripe.
+
+Database, PostgreSQL, MySQL, MongoDB, Redis, DynamoDB, Supabase,
+Firebase, schema design, query optimization, migration.
+
+Cloud, AWS, Azure, GCP, Vercel, Docker, Kubernetes, Terraform,
+CI/CD, DevOps, deployment, hosting, scaling, monitoring, logging.
+
+Pricing, cost, quote, budget, estimate, how much, timeline,
+how long, process, steps, hire, consultation, contact.
+
+====================================================================
+15. ANSWERING GUIDELINES FOR THE ASSISTANT
+====================================================================
+1. Answer only using information in this knowledge base. If the
+   answer is not here, say you do not have that information and
+   offer to connect the user with the team at [EMAIL].
+2. Keep answers concise — 2 to 5 sentences for simple questions,
+   bullet lists for service and feature questions.
+3. Always relate the answer back to the relevant service: AI,
+   Data Science, or Full Stack Web Development.
+4. When a user describes a problem, identify which service fits
+   and briefly explain how we would approach it.
+5. For pricing and timelines, give the ranges in this document
+   and note that final figures depend on scope — then suggest a
+   consultation.
+6. Never invent client names, certifications, guarantees, or
+   specific prices that are not listed here.
+7. End answers about services with a light next step, such as
+   "Would you like to book a free consultation?"
+8. Use plain language. Avoid unexplained jargon; if you use a
+   technical term, define it briefly.
+
+====================================================================
+END OF KNOWLEDGE BASE
+====================================================================
